@@ -4,107 +4,127 @@
     <meta name="description" content="TDEE Calculator">
     <meta name="author" content="Audrey Ryan">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
     <title>TDEE Calculator</title>
 </head>
 
+
 <body>
-    <header class="container">
-        <h1 class="item">
-            TDEE Calculator
-        </h1>
-        <nav class="item">
-            <ul>
-                <li>
-                    Calculator
-                </li>
-                <li>
-                    What is TDEE?
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Calculator -->
-        <article>
-            <!-- Form -->
-            <section id="form">
-                <form action="" method="get">
+    <div id="main-container">
+        <header class="flex-container">
+            <h1>
+                TDEE Calculator
+            </h1>
+            <nav>
+                <ul>
+                    <li>
+                        Calculator
+                    </li>
+                    <li>
+                        What is TDEE?
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    
+        <main class="grid-container">
+            <!-- Calculator -->
+            <article class="grid-item" id="calculator">
+                <!-- Form -->
+                <section id="form">
+                    <form action="" method="get">
+                        <article class="form-container">
+                            <input type="text" name="age" id="age" placeholder="Your Age" required>
+                        </article>
+                        <article class="form-container">
+                            <label for="age" class="form-item">Your Gender: </label>
+                            <span class="form-item">
+                                <input type="radio" name="gender" id="male" value="male">
+                                <label for="male" >Male</label>
+                            </span>
+                            <span class="form-item"> 
+                                <input type="radio" name="gender" id="female" value="female">
+                                <label for="female">Female</label>   
+                            </span>
+                        </article>
+                        <article class="form-container">
+                            <span class="form-item">
+                                <input type="text" name="weight" id="weight" placeholder="Your Weight" required/>
+                            </span>
+                            <span class="form-item">
+                                <label for="weight">lbs</label>
+                            </span>
+                        </article>
+                        <article class="form-container">
+                            <span class="form-item">
+                                <input type="text" name="feet" id="feet" placeholder="Feet" required/>
+                                <label for="feet">ft</label>
+                            </span>
+                            <span class="form-item">
+                                <input type="text" name="inches" id="inches" placeholder="Inches" required/>
+                                <label for="inches">in</label>
+                            </span>
+                        </article>
+                        <article>
+                            <span class="form-container">
+                                <span class="form-item">
+                                    <label for="activityLevel">Activity Level</label>
+                                </span>
+                                <span class="form-item">
+                                    <select id="activityLevel" name="Activity Level">
+                                        <option value="Sedentary">Sedentary</option>
+                                        <option value="lightlyActive">Lightly Active</option>
+                                        <option value="moderatelyActive">Moderately Active</option>
+                                    </select>
+                                </span>
+                            </span>
+    
+                            <aside class="form-container">
+                                Give some context about this option. (?)
+                            </aside>
+                        </article>
+                        <article>
+                            <input type="submit" onclick="return displayResults()"/>
+                        </article>                    
+                    
+                    </form>
+                </section>
+    
+                <!-- Display results here. Will update when user submits form. -->
+                <section id="results">
+                    <p>
+                        Fill out your information below to calculate your TDEE!
+                    </p>
                     <article>
-                        <label for="age">Your Age: </label>
-                        <input type="text" name="age" id="age" placeholder="" required>
+                        Your TDEE:
                     </article>
                     <article>
-                        <label for="age">Your Gender: </label>
-                        <input type="radio" name="gender" id="male" value="male">
-                        <label for="male">Male</label>
-                        <input type="radio" name="gender" id="female" value="female">
-                        <label for="female">Female</label>   
+                        Your BMR:
                     </article>
-                    <article>
-                        <label for="weight">Your weight: </label>
-                        <input type="text" name="weight" id="weight" placeholder="" required/>
-                        <label for="weight">lbs</label>
-                    </article>
-                    <article>
-                        <label for="height">Your height: </label>
-                        <input type="text" name="feet" id="feet" placeholder="" required/>
-                        <label for="feet">ft</label>
-                        <input type="text" name="inches" id="inches" placeholder="" required/>
-                        <label for="inches">in</label>
-                    </article>
-                    <article>
-                        <label for="activityLevel">Activity Level</label>
-                        <select id="activityLevel" name="Activity Level">
-                            <option value="Sedentary">Sedentary</option>
-                            <option value="lightlyActive">Lightly Active</option>
-                            <option value="moderatelyActive">Moderately Active</option>
-                        </select>
-                        <aside>
-                            Give some context about this option. (?)
-                        </aside>
-                    </article>
-                    <article>
-                        <input type="submit" onclick="return displayResults()"/>
-                    </article>                    
-                
-                </form>
-            </section>
-
-            <!-- Display results here. Will update when user submits form. -->
-            <section id="results">
-                <p>
-                    Fill out your information below to calculate your TDEE!
-                </p>
-                <article>
-                    Your TDEE:
-                </article>
-                <article>
-                    Your BMR:
-                </article>
-            </section>
-        </article>
-
-        <!-- About TDEE -->
-        <article>
-            <section>
+                </section>
+            </article>
+    
+            <!-- About TDEE -->
+            <article class="grid-item">
                 <h2>What is TDEE?</h2>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-            </section>
-            <section>
+            </article>
+
+            <!-- About BMR -->
+            <article class="grid-item">
                 <h2>What is BMR?</h2>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-            </section>
-        </article>
-
-        <footer>
-            Coded by Audrey. Peep the source code!
-        </footer>
-    </main>
+            </article>
+    
+            <footer>
+                Coded by Audrey. Peep the source code!
+            </footer>
+        </main>
+    </div>
 </body>
 
 </html>

@@ -1,22 +1,37 @@
-var age = 0;
-var gender = ""; 
-var weight = 0;
-var feet = 0;
-var inches = 0;
-var activityLevel = "";
+// var age = 0;
+// var gender = ""; 
+// var weight = 0;
+// var feet = 0;
+// var inches = 0;
+// var activityLevel = "";
 
 // *** TESTING FUNCTIONS ***
 
 // Inputs test values for testing form functions
-function _fillForm() {
-    age = 16;
-    gender = "Male"; 
-    weight = 145;
-    feet = 5;
-    inches = 6;
-    activityLevel = document.getElementById("activity-level").value.toLowerCase();
+// function _fillForm() {
+//     age = 16;
+//     gender = "Male"; 
+//     weight = 145;
+//     feet = 5;
+//     inches = 6;
+//     activityLevel = document.getElementById("activity-level").value.toLowerCase();
 
-    return;
+//     return;
+// }
+
+// *** CREATE USER PROFILE FUNCTION ***
+// Compiles user input into a map to create a "profile", returns a map called User
+function createUserProfile() {
+    const user = new Map();
+
+    user.set("age", document.getElementById("age").value);
+    user.set("gender", document.querySelector("input[name='gender']:checked").value.toLowerCase());
+    user.set("weight", document.getElementById("weight").value);
+    user.set("feet", document.getElementById("feet").value);
+    user.set("inches", document.getElementById("inches").value);
+    user.set("activity", document.getElementById("activity-level").value.toLowerCase());
+    
+    return user;
 }
 
 // *** VALIDATE FORM FUNCTION ***
@@ -46,15 +61,10 @@ function calculateResults() {
 // Main Function
 
 function displayResults () {
-    // Grab form input
-    // age = document.getElementById("age").value;
-    // gender = document.querySelector("input[name='gender']:checked").value.toLowerCase(); 
-    // weight = document.getElementById("weight").value;
-    // feet = document.getElementById("feet").value;
-    // inches = document.getElementById("inches").value;
-    // activityLevel = document.getElementById("activity-level").value.toLowerCase();
-
     if(validateForm()) {
+        // If all inputs are valid, create a user profile to calculate results
+        const user = createUserProfile();
+
         // TDEE Results
         document.getElementById("tdee-results").innerHTML = "Your TDEE: results";
 
@@ -64,7 +74,7 @@ function displayResults () {
         // Input Results
         var inputResults = "";
         inputResults += "Showing results for a "; 
-        inputResults += activityLevel + " " + age + " year old " + gender + " who is " + feet + " feet " + inches + " inch(es) tall and weighs " + weight + " pounds."; 
+        inputResults += user.get("activity") + " " + user.get("age") + " year old " + user.get("gender") + " who is " + user.get("feet") + " feet " + user.get("inches") + " inch(es) tall and weighs " + user.get("weight") + " pounds."; 
         document.getElementById("input-results").innerHTML = inputResults;
     } else {
         document.getElementById("error-message").innerHTML = "Error";

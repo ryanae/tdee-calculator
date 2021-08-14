@@ -29,12 +29,14 @@
         </header>
     
         <main class="grid-container">
-            <!-- Testing Button -->
+
+            <!-- Testing Button
             <article>
                 <button onclick="return _fillForm()" onsubmit="return false">
                     *** Fill Form ***
                 </button>
-            </article>
+            </article> -->
+
             <!-- Calculator -->
             <article class="grid-item" id="calculator">
                 <!-- Form -->
@@ -80,8 +82,8 @@
                                 <span class="form-item">
                                     <select id="activity-level" name="Activity Level">
                                         <option value="Sedentary">Sedentary</option>
-                                        <option value="lightlyActive">Lightly Active</option>
-                                        <option value="moderatelyActive">Moderately Active</option>
+                                        <option value="Lightly Active">Lightly Active</option>
+                                        <option value="Moderately Active">Moderately Active</option>
                                     </select>
                                 </span>
                             </span>
@@ -94,7 +96,9 @@
                             <!-- display error messages here-->
                         </article>
                         <article>
-                            <input type="submit" onclick="return displayResults()" onsubmit="return false"/>
+                            <button type="button" onclick="return displayResults()">
+                                Submit
+                            </button>
                         </article>                    
                     </form>
                 </section>

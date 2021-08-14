@@ -5,6 +5,7 @@
     <meta name="author" content="Audrey Ryan">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>TDEE Calculator</title>
 </head>
 
@@ -28,6 +29,12 @@
         </header>
     
         <main class="grid-container">
+            <!-- Testing Button -->
+            <article>
+                <button onclick="return _fillForm()" onsubmit="return false">
+                    *** Fill Form ***
+                </button>
+            </article>
             <!-- Calculator -->
             <article class="grid-item" id="calculator">
                 <!-- Form -->
@@ -68,10 +75,10 @@
                         <article>
                             <span class="form-container">
                                 <span class="form-item">
-                                    <label for="activityLevel">Activity Level</label>
+                                    <label for="activity-level">Activity Level</label>
                                 </span>
                                 <span class="form-item">
-                                    <select id="activityLevel" name="Activity Level">
+                                    <select id="activity-level" name="Activity Level">
                                         <option value="Sedentary">Sedentary</option>
                                         <option value="lightlyActive">Lightly Active</option>
                                         <option value="moderatelyActive">Moderately Active</option>
@@ -83,10 +90,12 @@
                                 Give some context about this option. (?)
                             </aside>
                         </article>
+                        <article id="error-message">
+                            <!-- display error messages here-->
+                        </article>
                         <article>
-                            <input type="submit" onclick="return displayResults()"/>
+                            <input type="submit" onclick="return displayResults()" onsubmit="return false"/>
                         </article>                    
-                    
                     </form>
                 </section>
     
@@ -95,11 +104,14 @@
                     <p>
                         Fill out your information below to calculate your TDEE!
                     </p>
-                    <article>
+                    <article id="tdee-results">
                         Your TDEE:
                     </article>
-                    <article>
+                    <article id="bmr-results">
                         Your BMR:
+                    </article>
+                    <article id="input-results">
+                        Showing results for a sedentary 24 year old female who weighs 130 pounds. 
                     </article>
                 </section>
             </article>

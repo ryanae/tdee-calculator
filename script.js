@@ -19,6 +19,94 @@
 //     return;
 // }
 
+// *** Testing inline form validation with javascript events ***
+
+// Age Input Validation
+document.getElementById("age").addEventListener("blur", validateAge);
+document.getElementById("weight").addEventListener("blur", validateWeight);
+document.getElementById("feet").addEventListener("blur", validateFeet);
+document.getElementById("inches").addEventListener("blur", validateInches);
+
+function validateAge() {
+    var ageInput = document.getElementById("age").value;
+
+    if (_isValidNumber(ageInput) == "") {
+        document.getElementById("age-error-message").innerHTML = "Valid";
+    } else {
+        document.getElementById("age-error-message").innerHTML = _isValidNumber(ageInput);
+    }; 
+
+}
+
+function validateWeight() {
+    var weightInput = document.getElementById("weight").value;
+
+    if (_isValidNumber(weightInput) == "") {
+        document.getElementById("weight-error-message").innerHTML = "Valid";
+    } else {
+        document.getElementById("weight-error-message").innerHTML = _isValidNumber(weightInput);
+    }; 
+}
+
+function validateFeet() {
+    var feetInput = document.getElementById("feet").value;
+
+    if (_isValidNumber(feetInput) == "") {
+        document.getElementById("feet-error-message").innerHTML = "Valid";
+    } else {
+        document.getElementById("feet-error-message").innerHTML = _isValidNumber(feetInput);
+    }; 
+}
+
+function validateInches() {
+    var inchesInput = document.getElementById("inches").value;
+
+    if (_isValidNumber(inchesInput) == "" && _inchesMoreThan12(inchesInput) == "") {
+        document.getElementById("inches-error-message").innerHTML = "Valid";
+    } else if (_isValidNumber(inchesInput) == "" && _inchesMoreThan12(inchesInput) != "") {
+        document.getElementById("inches-error-message").innerHTML = _inchesMoreThan12(inchesInput);
+    } else {
+        document.getElementById("inches-error-message").innerHTML = _isValidNumber(inchesInput);
+
+    }
+
+}
+
+// ** Helper Functions **
+
+// Checks if input is a valid number.
+function _isValidNumber(number) {
+    var errorMessage = ""; 
+
+    if (number.length == 0) {
+        errorMessage = "Must enter a valid number";
+    } else if (Math.sign(number) == -1) {
+        errorMessage = "Cannot be negative";
+    } else if (number == 0) {
+        errorMessage = "Cannot be zero";
+    } else if (number.toString()[0] == "0") {
+        errorMessage = "Cannot have leading 0";
+    }  else if (number.indexOf('.') !== -1) {
+        errorMessage = "has decimal";
+    }
+
+    return errorMessage;
+
+}
+
+// Checks if inches value is more than 11
+function _inchesMoreThan12(number) {
+    var errorMessage = ""
+
+    if (number > 11) {
+        return errorMessage = "Cannot be more than 11 in";
+    } 
+
+    return errorMessage;
+
+}
+
+
 // *** CREATE USER PROFILE FUNCTION ***
 // Compiles user input into a map to create a "profile", returns a map called User
 function createUserProfile() {
@@ -47,6 +135,8 @@ function validateForm() {
 // *** CALCULATE RESULTS FUNCTION ***
 // Calculates results; takes user information from form input, and calculates the user's BMR and TDEE. Uses the appropriate formulas/modifiers based on gender and activity level. 
 // Fires when user clicks submit form, and inputs are determined valid based on validateForm(). 
+
+
 
 function calculateResults() {
     return;

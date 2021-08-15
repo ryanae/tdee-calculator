@@ -5,10 +5,8 @@
     <meta name="author" content="Audrey Ryan">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <title>TDEE Calculator</title>
 </head>
-
 
 <body>
     <div id="main-container">
@@ -43,10 +41,13 @@
                 <section id="form">
                     <form action="" method="get">
                         <article class="form-container">
-                            <input type="text" name="age" id="age" placeholder="Your Age" required>
-                        </article>
-                        <article class="form-container">
-                            <label for="age" class="form-item">Your Gender: </label>
+                            <input type="number" name="age" id="age" placeholder="Your Age*" min="0" required>
+                            <span id="age-error-message">
+                                age error message here
+                            </span>
+                        </article>                        
+                        <!-- <article class="form-container">
+                            <label for="gender" class="form-item">Your Gender* </label>
                             <span class="form-item">
                                 <input type="radio" name="gender" id="male" value="male">
                                 <label for="male" >Male</label>
@@ -55,29 +56,36 @@
                                 <input type="radio" name="gender" id="female" value="female">
                                 <label for="female">Female</label>   
                             </span>
-                        </article>
+                        </article> -->
                         <article class="form-container">
                             <span class="form-item">
-                                <input type="text" name="weight" id="weight" placeholder="Your Weight" required/>
-                            </span>
-                            <span class="form-item">
+                                <input type="number" name="weight" id="weight" placeholder="Your Weight*" min="0" required/>
                                 <label for="weight">lbs</label>
                             </span>
+                            <span class="form-item" id="weight-error-message">
+                                weight error message here
+                            </span>
                         </article>
                         <article class="form-container">
                             <span class="form-item">
-                                <input type="text" name="feet" id="feet" placeholder="Feet" required/>
+                                <input type="number" name="feet" id="feet" placeholder="Feet*" min="0" required/>
                                 <label for="feet">ft</label>
+                                <span class="form-item" id="feet-error-message">
+                                    feet error message here
+                                </span>
                             </span>
                             <span class="form-item">
-                                <input type="text" name="inches" id="inches" placeholder="Inches" required/>
+                                <input type="number" name="inches" id="inches" placeholder="Inches*" min="0" max="11" required/>
                                 <label for="inches">in</label>
+                                <span class="form-item" id="inches-error-message">
+                                    inches error message here
+                                </span>
                             </span>
                         </article>
-                        <article>
+                        <!-- <article>
                             <span class="form-container">
                                 <span class="form-item">
-                                    <label for="activity-level">Activity Level</label>
+                                    <label for="activity-level">Activity Level*</label>
                                 </span>
                                 <span class="form-item">
                                     <select id="activity-level" name="Activity Level">
@@ -91,9 +99,12 @@
                             <aside class="form-container">
                                 Give some context about this option. (?)
                             </aside>
+                        </article> -->
+                        <article id="required-message">
+                            * indicates required
                         </article>
                         <article id="error-message">
-                            <!-- display error messages here-->
+                            
                         </article>
                         <article>
                             <button type="button" onclick="return displayResults()">
@@ -141,6 +152,8 @@
             </footer>
         </main>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
